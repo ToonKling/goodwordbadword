@@ -8,6 +8,7 @@ import os
 DATABASE_URL = os.getenv("DATABASE_URL")
 
 origins = [
+    'toonkli.ng',
     'localhost:80',
     'localhost:8000'
 ]
