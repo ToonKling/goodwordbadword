@@ -18,6 +18,7 @@ services:
       - ./nginx/index.html:/usr/share/nginx/html/index.html:ro
       - ./nginx/script.js:/usr/share/nginx/html/script.js:ro
       - ./nginx/classless.css:/usr/share/nginx/html/classless.css:ro
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
 
   fastapi:
     build: ./fastapi
