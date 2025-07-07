@@ -1,5 +1,5 @@
 const wordText = document.getElementById('word-text');
-const leaderboard = document.getElementById('leaderboard');
+const leaderboardBody = document.getElementById('leaderboard-body');
 const url = "__API_BASE_URL__"
 
 let currentWord = null;
@@ -27,14 +27,14 @@ const refreshLeaderboard = async () => {
   const response = await fetch(`${url}/words/leaderboard`);
   const leaderboardJson = await response.json();
 
-  leaderboard.innerHTML = '';
+  leaderboardBody.innerHTML = '';
   leaderboardJson.forEach(item => {
     const row = document.createElement('tr');
     row.innerHTML = `
       <td>${item.word}</td>
       <td>${item.avg}</td>
     `;
-    leaderboard.appendChild(row);
+    leaderboardBody.appendChild(row);
   });
 }
 
