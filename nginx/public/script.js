@@ -1,10 +1,11 @@
 const wordText = document.getElementById('word-text');
 const leaderboard = document.getElementById('leaderboard');
+const url = "__API_BASE_URL__"
 
 let currentWord = null;
 
 const loadNewWord = async () => {
-  const response = await fetch(`http://toonkli.ng/words/random`);
+  const response = await fetch(`${url}/words/random`);
   const nextWord = await response.json();
   currentWord = nextWord;
   const nextWordText = nextWord['word'];
@@ -16,14 +17,14 @@ const loadNewWord = async () => {
 loadNewWord()
 
 const vote = async (rating) => {
-  await fetch(`http://toonkli.ng/words/${currentWord['id']}/rating?rating=${rating}`, {
+  await fetch(`${url}/words/${currentWord['id']}/rating?rating=${rating}`, {
     method: "POST"
   });
   await loadNewWord();
 }
 
 const refreshLeaderboard = async () => {
-  const response = await fetch(`http://toonkli.ng/words/leaderboard`);
+  const response = await fetch(`${url}/words/leaderboard`);
   const leaderboardJson = await response.json();
 
   leaderboard.innerHTML = '';
