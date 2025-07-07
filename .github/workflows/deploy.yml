@@ -20,4 +20,4 @@ jobs:
         script: |
           cd ./goodwordbadword
           git pull origin main
-          docker compose --env-file .env.prod up -d --build
+          docker-compose --env-file .env.prod up -d --build
